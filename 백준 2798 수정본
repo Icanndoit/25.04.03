@@ -10,7 +10,11 @@ int func(int arr[], int len, int maximum) {
 		{
 			for (int k = j + 1; k < len; k++) {
 				if (arr[i] + arr[j] + arr[k] > re && arr[i] + arr[j] + arr[k] <= maximum)
+				{
 					re = arr[i] + arr[j] + arr[k];
+					if (re == maximum)
+						break;
+				}
 			}
 		}
 	}
