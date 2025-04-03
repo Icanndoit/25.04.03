@@ -1,0 +1,29 @@
+// https://www.acmicpc.net/problem/2231
+#include<iostream>
+using namespace std;
+
+int func(int n) {
+	int re = 0;
+	for (int i = 1; i < n; i++)
+	{
+		int hap = i, con = i;
+		while (con >= 1) {
+			hap += (con % 10);
+			con /= 10;
+		}
+		if (hap == n) {
+			re = hap;
+			break;
+		}
+	}
+	return re;
+}
+
+int main() {
+	int n;
+	cin >> n;
+
+	cout << func(n) << endl;
+
+	return 0;
+}
