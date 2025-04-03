@@ -1,6 +1,5 @@
 // https://www.acmicpc.net/problem/2798
 #include<iostream>
-#include<algorithm>
 using namespace std;
 
 int func(int arr[], int len, int maximum) {
