@@ -1,0 +1,40 @@
+// https://www.acmicpc.net/problem/2798
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int maxfunc(int n, int arr[], int maximum) {
+	int re = 0, tmp = -99999;
+	sort(arr, arr + n);
+	for (int i = n - 1; i >= 2; i--)
+	{
+		for (int j = i - 1; j >= 1; j--) {
+			for (int k = j - 1; k >= 0; k--)
+			{
+				int com = arr[i] + arr[j] + arr[k];
+				if (com <= maximum) {
+					if (com > tmp) {
+						re = com;
+						tmp = com;
+					}
+				}
+			}
+		}
+	}
+	return re;
+}
+
+// 36, 93, 138, 181, 185, 214, 216, 245, 295, 315
+
+int main() {
+	int n, * arr, maximum;
+	
+	cin >> n >> maximum;
+	arr = new int[n];
+	for (int i = 0; i < n; i++)
+		cin >> arr[i];
+
+	cout << maxfunc(n, arr, maximum) << endl;
+
+	return 0;
+}
